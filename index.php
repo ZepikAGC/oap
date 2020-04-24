@@ -4,18 +4,18 @@ if (file_exists(__DIR__."/vendor/autoload.php")) {
     require __DIR__."/vendor/autoload.php";
 }
 
-use stolyarov\Log;
-use stolyarov\QuadraticEq;
-use stolyarov\StolyarovException;
+use Osipov\Log;
+use Osipov\QuadraticSolve;
+use Osipov\MyException;
 
-$eq=new QuadraticEq();
+$eq=new QuadraticSolve();
 
 $a=0;
 $b=0;
 $c=0;
 
 try {
-    function entercheck($num,$letter)
+    function checkdata($num,$letter)
     {
         $pattern = '#^[0-9]*[.]?[0-9]+$#';
         for (;;) {
@@ -32,12 +32,12 @@ try {
         return $num;
     }
 
-    $a=entercheck($a,'a');
-    $b=entercheck($b,'b');
-    $c=entercheck($c,'c');
+    $a=checkdata($a,'a');
+    $b=checkdata($b,'b');
+    $c=checkdata($c,'c');
 
     $eq->solve($a,$b,$c);
-} catch (StolyarovException $e) {
+} catch (MyException $e) {
     Log::log("Error: ".$e->getMessage());
 }
 

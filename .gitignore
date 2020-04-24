@@ -1,6 +1,11 @@
 Log/
 start
 .idea/
+.git/
 version
 vendor
-Osipov/
+phpunit*.phar
+composer.lock
+start.bat
+oap/
+core/

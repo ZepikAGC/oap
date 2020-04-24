@@ -4,6 +4,7 @@
     "php":">=5.3.0",
     "zepikagc/trpo":"dev-master",
     "rok9ru/trpo-core":"dev-master"
+    "ext-readline": "*"
   },"repositories":[
     {
       "type":"package",
@@ -23,13 +24,20 @@
         "version":"dev-master",
         "source":{
           "type":"git",
-          "url":"https://github.com/AlienBrayn/stolyarovlib.git",
+          "url":"https://github.com/ZepiAGC/osipovlib.git",
           "reference":"master"
         }
       }
     }
   ],
   "autoload":{
+    "psr-4": {
+      "Osipov\\":"vendor\\zepikagc\\osipovlib",
+      "core\\":"vendor\\rok9ru\\trpo-core"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9"
     "classmap": [
       "vendor/zepikagc/trpo/",
       "vendor/rok9ru/trpo-core/"

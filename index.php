@@ -1,25 +1,21 @@
 <?php
 
-use Osipov\Log;
-use Osipov\QuadraticSolve;
-use Osipov\MyException;
+if (file_exists(__DIR__."/vendor/autoload.php")) {
+    require __DIR__."/vendor/autoload.php";
+}
 
-include 'core/SolveInterface.php';
-include 'core/LogInterface.php';
-include 'core/LogAbstract.php';
-include 'Osipov/MyException.php';
-include 'Osipov/LinearSolve.php';
-include 'Osipov/QuadraticSolve.php';
-include 'Osipov/Log.php';
+use stolyarov\Log;
+use stolyarov\QuadraticEq;
+use stolyarov\StolyarovException;
 
-$eq=new QuadraticSolve();
+$eq=new QuadraticEq();
 
 $a=0;
 $b=0;
 $c=0;
 
 try {
-    function checkdata($num,$letter)
+    function entercheck($num,$letter)
     {
         $pattern = '#^[0-9]*[.]?[0-9]+$#';
         for (;;) {
@@ -36,12 +32,12 @@ try {
         return $num;
     }
 
-    $a=checkdata($a,'a');
-    $b=checkdata($b,'b');
-    $c=checkdata($c,'c');
+    $a=entercheck($a,'a');
+    $b=entercheck($b,'b');
+    $c=entercheck($c,'c');
 
     $eq->solve($a,$b,$c);
-} catch (MyException $e) {
+} catch (StolyarovException $e) {
     Log::log("Error: ".$e->getMessage());
 }
 

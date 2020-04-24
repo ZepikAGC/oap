@@ -1,0 +1,38 @@
+{
+  "minimum-stability": "dev",
+  "require": {
+    "php":">=5.3.0",
+    "zepikagc/trpo":"dev-master",
+    "rok9ru/trpo-core":"dev-master"
+  },"repositories":[
+    {
+      "type":"package",
+      "package":{
+        "name":"rok9ru/trpo-core",
+        "version":"dev-master",
+        "source":{
+          "type":"git",
+          "url":"https://github.com/rok9ru/trpo-core.git",
+          "reference":"master"
+        }
+      }
+    },{
+      "type":"package",
+      "package":{
+        "name":"zepikagc/trpo",
+        "version":"dev-master",
+        "source":{
+          "type":"git",
+          "url":"https://github.com/AlienBrayn/stolyarovlib.git",
+          "reference":"master"
+        }
+      }
+    }
+  ],
+  "autoload":{
+    "classmap": [
+      "vendor/zepikagc/trpo/",
+      "vendor/rok9ru/trpo-core/"
+    ]
+  }
+}
